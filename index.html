@@ -4,6 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>포스터 카드</title>
+    <script>
+      // 화면이 그려지기 전에 저장된 테마를 먼저 적용 (새로고침 때 밝게 깜빡이지 않게)
+      try {
+        var t = localStorage.getItem("poster-card-theme");
+        if (!t) t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+        document.documentElement.dataset.theme = t;
+      } catch (e) {}
+    </script>
   </head>
   <body>
     <div id="root"></div>

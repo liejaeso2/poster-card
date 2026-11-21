@@ -7,9 +7,25 @@
   --perf: #b8ae99;
   --accent: #c4642a;
   --bg: #e9e4d8;
+  --poster-bg: #e4ddcc;
+  --stub-bg: rgba(26, 26, 24, 0.05);
 
   --card-w: 342px;
   --radius: 0;
+}
+
+/* 다크 모드: 같은 변수만 밤 색으로 바꾼다 (오래된 극장표를 어두운 조명 아래서 보는 느낌) */
+:root[data-theme="dark"] {
+  --paper: #23211d;
+  --ink: #f2ede2;
+  --body: #b9b0a0;
+  --line: #3a362f;
+  --faint: #8f8676;
+  --perf: #5a5347;
+  --accent: #e08a52;
+  --bg: #151411;
+  --poster-bg: #2c2924;
+  --stub-bg: rgba(242, 237, 226, 0.06);
 }
 
 * {
@@ -20,6 +36,7 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--ink);
+  transition: background-color 0.3s ease, color 0.3s ease;
   font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI",
     "Malgun Gothic", sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -29,6 +46,31 @@ body {
   max-width: 420px;
   margin: 0 auto;
   padding: 24px 24px 64px;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 0 0 12px auto;
+  padding: 6px 12px;
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.toolbar {
+  display: flex;
 }
 
 .notice {
@@ -70,7 +112,7 @@ body {
 .ticket__poster {
   margin-top: 10px;
   aspect-ratio: 2 / 3;
-  background: #e4ddcc;
+  background: var(--poster-bg);
   overflow: hidden;
 }
 
@@ -283,7 +325,7 @@ body {
   justify-content: center;
   gap: 1px;
   border-right: 1px dashed var(--perf);
-  background: rgba(26, 26, 24, 0.05);
+  background: var(--stub-bg);
 }
 
 .stubcard__no small {
