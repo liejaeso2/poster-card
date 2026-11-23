@@ -14,5 +14,5 @@ export const MY_CARD = {
   description: "Hello, I'm Sojaeil!",
 
   // public 폴더에 넣은 이미지 파일명 (앞에 / 꼭 붙이기)
-  image: "/sojaeil.jpg",
+  image: "/manutd.jpg",
 };
